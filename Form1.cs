@@ -68,15 +68,10 @@ namespace LB3SPZ
                 var pc = form.pc;
                 computers.Remove(MakeComputerString(element));
                 var index = comboBox1.Items.IndexOf(MakeComputerString(element));
-                comboBox1.Items.RemoveAt(index);
-                computers.Add(MakeComputerString(pc), new Computer
-                {
-                    Name = pc.Name,
-                    CPUCount = pc.CPUCount,
-                    CPUFrequency = pc.CPUFrequency,
-                    RAM = pc.RAM
-                });
+                //comboBox1.Items.RemoveAt(index);
+                computers.Add(MakeComputerString(pc), pc);
                 comboBox1.Items.Add(MakeComputerString(pc));
+
                 comboBox1.Text = "";
             }
         }

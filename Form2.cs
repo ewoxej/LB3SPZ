@@ -20,6 +20,7 @@ namespace LB3SPZ
         public Form2(Computer comp)
         {
             InitializeComponent();
+            pc = comp;
             textBox1.Text = pc.Name;
             textBox2.Text = pc.RAM.ToString();
             textBox3.Text = pc.CPUFrequency.ToString();
