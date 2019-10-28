@@ -30,6 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.User = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CPUTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Memory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Location = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Priority = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.processBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -39,19 +46,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.User = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CPUTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Memory = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Location = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Priority = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.processBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.computerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.computerBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.processBindingSource)).BeginInit();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.computerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.computerBindingSource1)).BeginInit();
             this.SuspendLayout();
@@ -72,6 +72,48 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(702, 293);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellClick);
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // User
+            // 
+            this.User.DataPropertyName = "User";
+            this.User.HeaderText = "User";
+            this.User.Name = "User";
+            // 
+            // CPUTime
+            // 
+            this.CPUTime.DataPropertyName = "CPUTime";
+            this.CPUTime.HeaderText = "CPUTime";
+            this.CPUTime.Name = "CPUTime";
+            // 
+            // Memory
+            // 
+            this.Memory.DataPropertyName = "Memory";
+            this.Memory.HeaderText = "Memory";
+            this.Memory.Name = "Memory";
+            // 
+            // Location
+            // 
+            this.Location.DataPropertyName = "Location";
+            this.Location.HeaderText = "Location";
+            this.Location.Name = "Location";
+            // 
+            // Priority
+            // 
+            this.Priority.DataPropertyName = "Priority";
+            this.Priority.HeaderText = "Priority";
+            this.Priority.MaxInputLength = 1;
+            this.Priority.Name = "Priority";
+            // 
+            // processBindingSource
+            // 
+            this.processBindingSource.DataSource = typeof(LB3SPZ.Process);
             // 
             // comboBox1
             // 
@@ -160,47 +202,6 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Total:";
             // 
-            // User
-            // 
-            this.User.DataPropertyName = "User";
-            this.User.HeaderText = "User";
-            this.User.Name = "User";
-            // 
-            // CPUTime
-            // 
-            this.CPUTime.DataPropertyName = "CPUTime";
-            this.CPUTime.HeaderText = "CPUTime";
-            this.CPUTime.Name = "CPUTime";
-            // 
-            // Memory
-            // 
-            this.Memory.DataPropertyName = "Memory";
-            this.Memory.HeaderText = "Memory";
-            this.Memory.Name = "Memory";
-            // 
-            // Location
-            // 
-            this.Location.DataPropertyName = "Location";
-            this.Location.HeaderText = "Location";
-            this.Location.Name = "Location";
-            // 
-            // Priority
-            // 
-            this.Priority.DataPropertyName = "Priority";
-            this.Priority.HeaderText = "Priority";
-            this.Priority.MaxInputLength = 1;
-            this.Priority.Name = "Priority";
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            // 
-            // processBindingSource
-            // 
-            this.processBindingSource.DataSource = typeof(LB3SPZ.Process);
-            // 
             // computerBindingSource
             // 
             this.computerBindingSource.DataSource = typeof(LB3SPZ.Computer);
@@ -235,9 +236,9 @@
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.processBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.processBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.computerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.computerBindingSource1)).EndInit();
             this.ResumeLayout(false);

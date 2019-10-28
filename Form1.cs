@@ -62,13 +62,13 @@ namespace LB3SPZ
             string str = comboBox1.SelectedItem.ToString();
             Computer element;
             computers.TryGetValue(str, out element);
+            var index = comboBox1.Items.IndexOf(MakeComputerString(element));
             using (var form = new Form2(element))
             {
                 var result = form.ShowDialog();
                 var pc = form.pc;
                 computers.Remove(MakeComputerString(element));
-                var index = comboBox1.Items.IndexOf(MakeComputerString(element));
-                //comboBox1.Items.RemoveAt(index);
+                comboBox1.Items.RemoveAt(index);
                 computers.Add(MakeComputerString(pc), pc);
                 comboBox1.Items.Add(MakeComputerString(pc));
 
@@ -89,6 +89,22 @@ namespace LB3SPZ
         private void Button4_Click(object sender, EventArgs e)
         {
             dataGridView1.Rows.RemoveAt(this.dataGridView1.SelectedRows[0].Index);
+        }
+
+        private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string str = comboBox1.SelectedItem.ToString();
+            Computer element;
+            computers.TryGetValue(str, out element);
+            float summaryCPU = 0;
+            float summaryRAM = 0;
+            foreach (var i in element.processes)
+            {
+                summaryCPU += i.Value.CPUTime;
+                summaryRAM += i.Value.Memory;
+            }
+            label3.Text = "CPU: " + (summaryCPU / (element.CPUFrequency * element.CPUCount)).ToString() + "%";
+            label4.Text = "RAM: " + (summaryRAM / element.RAM).ToString() + "%";
         }
     }
 }
