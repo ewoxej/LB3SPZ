@@ -17,7 +17,14 @@ namespace LB3SPZ
         {
             InitializeComponent();
         }
-
+        public Form2(Computer comp)
+        {
+            InitializeComponent();
+            textBox1.Text = pc.Name;
+            textBox2.Text = pc.RAM.ToString();
+            textBox3.Text = pc.CPUFrequency.ToString();
+            textBox4.Text = pc.CPUCount.ToString();
+        }
         private void Button1_Click(object sender, EventArgs e)
         {
             pc.Name = textBox1.Text;

@@ -12,7 +12,7 @@ namespace LB3SPZ
         public int RAM { get; set; }
         public float CPUFrequency { get; set; }
         public int CPUCount { get; set; }
-        private Dictionary<string, Process> processes;
+        public Dictionary<string, Process> processes = new Dictionary<string, Process>();
 
         public void addProcess(Process inst)
         {

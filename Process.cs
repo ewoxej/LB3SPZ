@@ -8,13 +8,18 @@ namespace LB3SPZ
 {
     public class Process
     {
-        public string Name { get; }
-        public string User { get; }
+        public string Name { set; get; }
+        public string User { set; get; }
         public float CPUTime { set; get; }
         public float Memory { set; get; }
         public string Location { set; get; }
-        public int Priority { get; set; }
+        private int priority;
+        public int Priority { get { return priority; } set { setPriority(value); } }
 
+        public void setPriority(int value)
+        {
+            priority = (value > 4) ? 4 : (value < 0) ? 0 : value;
+        }
         public Process(string initName,string initUser,float initCPU=0, float initMem=0, string initLoc="root", int initPriority = 0)
         {
             Name = initName;
